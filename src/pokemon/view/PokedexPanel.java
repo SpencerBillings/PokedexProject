@@ -47,7 +47,7 @@ public class PokedexPanel extends JPanel
 	
 	private void setupListeners()
 	{
-		updateButton.addActionListener(new ActionListeners()
+		updateButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
