@@ -3,20 +3,21 @@ package pokemon.controller;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-import pokemon.view.PokemonFrame;
+import pokemon.view.PokedexFrame;
 import pokemon.model.*;
 
-public class PokemonController 
+public class PokedexController 
 {
 	
 	private ArrayList<Pokemon> pokemonList;
-	private PokemonFrame appFrame;
+	private PokedexFrame appFrame;
 	
-	public PokemonController()
+	public PokedexController()
 	{
 		pokemonList = new ArrayList<Pokemon>();
+		appFrame = new PokedexFrame(this);
+		
 		addPokemon();
-		appFrame = new PokemonFrame(this);
 	}
 	
 	private void addPokemon()
