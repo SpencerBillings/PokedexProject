@@ -5,6 +5,11 @@ import javax.swing.JOptionPane;
 
 import pokemon.view.PokedexFrame;
 import pokemon.model.*;
+import pokemon.model.monsters.Exeggutor;
+import pokemon.model.monsters.Haunter;
+import pokemon.model.monsters.Metapod;
+import pokemon.model.monsters.Ninetails;
+import pokemon.model.monsters.Persian;
 
 public class PokedexController 
 {
@@ -23,15 +28,15 @@ public class PokedexController
 	
 	private void addPokemon()
 	{
-		pokemonList.add(new Vulpix());
+		//pokemonList.add(new Vulpix());
 		pokemonList.add(new Ninetails());
-		pokemonList.add(new Execute());
+		//pokemonList.add(new Execute());
 		pokemonList.add(new Exeggutor());
-		pokemonList.add(new Caterpie());
+		//pokemonList.add(new Caterpie());
 		pokemonList.add(new Metapod());
-		pokemonList.add(new Meowth());
+		//pokemonList.add(new Meowth());
 		pokemonList.add(new Persian());
-		pokemonList.add(new Gastly());
+		//pokemonList.add(new Gastly());
 		pokemonList.add(new Haunter());
 	}
 	
@@ -49,7 +54,7 @@ public class PokedexController
 	{
 		if (data.length == 5)
 		{
-			Pokemon current = pokmonList.get(index);
+			Pokemon current = pokemonList.get(index);
 			current.setAttackPoints(Integer.parseInt(data[0]));
 			current.setEnhancementModifier(Double.parseDouble(data[1]));
 			current.setHealthPoints(Integer.parseInt(data[2]));

@@ -71,6 +71,7 @@ public class PokedexPanel extends JPanel
 			String [] data = new String[5];
 			
 			// Add code here
+			String [] data = {"Ninetailes", "Exeggutor", "Metapod", "Persian", "Haunter"};
 			
 			appController.updatePokemon(index, data);
 		}
@@ -179,7 +180,16 @@ public class PokedexPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				
+				sendDataToController();
+			}
+		});
+		
+		pokedexDropdown.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String name = pokedexDropdown.getSelectedItem().toString();
+				changeImageDisplay(name);
 			}
 		});
 	}
