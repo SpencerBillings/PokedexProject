@@ -28,12 +28,15 @@ public class PokedexPanel extends JPanel
 	private JComboBox pokedexDropdown;
 	private JButton updateButton;
 	
+	private ImageIcon pokemonIcon;
+	
 	public PokedexPanel(PokedexController appController)
 	{
 		super();
 		
 		this.appController = appController;
 		this.appLayout = new SpringLayout();
+		this.pokemonIcon = new ImageIcon(getClass().getResource("/pokemon/view/images/pokemonNinetailes.png"));
 		
 		numberField = new JTextField("0");
 		nameField = new JTextField("[Insert Text]");
@@ -48,15 +51,46 @@ public class PokedexPanel extends JPanel
 		attackLabel = new JLabel("Attack level:");
 		enhanceLabel = new JLabel("Enhancement level:");
 		healthLabel = new JLabel("Health:");
-		imageLabel = new JLabel("[Insert Pokemon Here]");
+		imageLabel = new JLabel("[Insert Pokemon Here]", pokemonIcon, JLabel.CENTER);
 		
-		pokedexDropdown = new JComboBox();
+		pokedexDropdown = new JComboBox<String>();
 		updateButton = new JButton("Update");
 		
 		setupPanel();
 		setupLayout();
 		setupListeners();
 		
+	}
+	
+	private void sendDataToController()
+	{
+		int index = pokedexDropdown.getSelectedIndex();
+		
+		if(appController.isInt(attackField.getText()) && appController.isDouble(enhanceField.getText()) && appController.isInt(healthField.getText()))
+		{
+			String [] data = new String[5];
+			
+			// Add code here
+			
+			appController.updatePokemon(index, data);
+		}
+	}
+	
+	private void changeImageDisplay(String name)
+	{
+		String path = "/pokemon/view/images/";
+		String defaultName = "Ninetailes";
+		String extension = ".png";
+		try
+		{
+			pokemonIcon = new ImageIcon(getClass().getResource(path + name.toLowerCase() + extension));
+		}
+		catch(NullPointerException missingFile)
+		{
+			pokemonIcon = new ImageIcon(getClass().getResource(path + defaultName + extension));
+		}
+		imageLabel.setIcon(pokemonIcon);
+		repaint();
 	}
 	
 	private void setupDropdown()
@@ -89,6 +123,9 @@ public class PokedexPanel extends JPanel
 		
 		this.add(updateButton);
 		this.add(pokedexDropdown);
+		
+		imageLabel.setVerticalTextPosition(JLabel.BOTTOM);
+		imageLabel.setHorizontalTextPosition(JLabel.CENTER);
 	}
 	
 	private void setupLayout()
