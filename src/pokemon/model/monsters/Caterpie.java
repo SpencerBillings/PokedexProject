@@ -9,12 +9,12 @@ public class Caterpie extends Pokemon implements Bug
 		super(10, "Caterpie");
 	}
 	
-	public Caterpie(String name);
+	public Caterpie(String name)
 	{
 		super(10, name);
 	}
 	
-	public Caterpie(int number, String name);
+	public Caterpie(int number, String name)
 	{
 		super(number, name);
 	}
