@@ -36,7 +36,7 @@ public class PokedexPanel extends JPanel
 		
 		this.appController = appController;
 		this.appLayout = new SpringLayout();
-		this.pokemonIcon = new ImageIcon(getClass().getResource("/pokemon/view/images/pokemonNinetailes.png"));
+		this.pokemonIcon = new ImageIcon(getClass().getResource("/pokemon/view/images/pokeiconWhite.png"));
 		
 		numberField = new JTextField("0");
 		nameField = new JTextField("[Insert Text]");
@@ -51,9 +51,9 @@ public class PokedexPanel extends JPanel
 		attackLabel = new JLabel("Attack level:");
 		enhanceLabel = new JLabel("Enhancement level:");
 		healthLabel = new JLabel("Health:");
-		imageLabel = new JLabel("[Insert Pokemon Here]", pokemonIcon, JLabel.CENTER);
 		
 		pokedexDropdown = new JComboBox<String>();
+		appLayout.putConstraint(SpringLayout.EAST, pokedexDropdown, 137, SpringLayout.WEST, this);
 		updateButton = new JButton("Update");
 		
 		setupPanel();
