@@ -5,9 +5,13 @@ import pokemon.model.types.*;
 
 public class Caterpie extends Pokemon implements Bug
 {
+	
+	private String type;
+	
 	public Caterpie()
 	{
 		super(10, "Caterpie");
+		this.type = "Bug";
 	}
 	
 	public Caterpie(String name)
@@ -28,5 +32,10 @@ public class Caterpie extends Pokemon implements Bug
 	public void pest()
 	{
 		System.out.println("");
+	}
+	
+	public String getType()
+	{
+		return type;
 	}
 }
