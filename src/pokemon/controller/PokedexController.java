@@ -2,7 +2,7 @@ package pokemon.controller;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
+import java.io.*;
 import pokemon.view.PokedexFrame;
 import pokemon.model.Pokemon;
 import pokemon.model.monsters.*;
@@ -10,14 +10,14 @@ import pokemon.model.monsters.*;
 
 public class PokedexController 
 {
-	
+	private String saveFile = "backup.pokemon";
 	private ArrayList<Pokemon> pokemonList;
 	private PokedexFrame appFrame;
 	
 	public PokedexController()
 	{
-		pokemonList = new ArrayList<Pokemon>();
-		appFrame = new PokedexFrame(this);
+		this.pokemonList = new ArrayList<Pokemon>();
+		this.appFrame = new PokedexFrame(this);
 		
 		addPokemon();
 		buildPokedexText();
@@ -35,6 +35,7 @@ public class PokedexController
 		pokemonList.add(new Persian());
 		pokemonList.add(new Gastly());
 		pokemonList.add(new Haunter());
+		pokemonList.add(new Hmmm());
 	}
 	
 	public void start()
@@ -44,7 +45,7 @@ public class PokedexController
 	
 	public ArrayList<Pokemon> getPokemonList()
 	{
-		this.pokemonList = pokemonList;
+		return pokemonList;
 	}
 	
 	public void updatePokemon(int index, String [] data)
@@ -109,5 +110,20 @@ public class PokedexController
 		}
 		
 		return isValid;
+	}
+	
+	public String toString()
+	{
+		
+	}
+	
+	public String getPokemonTypes()
+	{
+		return
+	}
+	
+	public PokedexFrame getFrame()
+	{
+		return appFrame;
 	}
 }
